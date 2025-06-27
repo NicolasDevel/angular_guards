@@ -18,8 +18,6 @@ export class Login {
 
   constructor(private authServices: AuthServices, private router: Router) {}
 
-
-
   onLogin(){
 
     const emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}/
