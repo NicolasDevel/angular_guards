@@ -8,13 +8,14 @@ import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authTokenInterceptor } from './interceptors/auth-token-interceptor';
 import { errorHandlingInterceptor } from './interceptors/error-handling-interceptor';
+import { succesHandlingInterceptor } from './interceptors/succes-handling-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptors([authTokenInterceptor, errorHandlingInterceptor])),
+    provideHttpClient(withInterceptors([authTokenInterceptor, errorHandlingInterceptor, succesHandlingInterceptor])),
     provideAnimations(),
     provideToastr({
       timeOut: 3000, // 3 segundos // Cuanto tiempo dura la notificación
